@@ -33,7 +33,5 @@ pip3 install -r requirements.txt
 ```
 
 # 詳細
-- テーブル定義書
-https://docs.google.com/spreadsheets/d/1VvPhFJ8k59rQxTckvKqenU6MuJuM_X-R_J074qv8O_Y/edit?usp=sharing
-- apiエンドポイント
-https://docs.google.com/spreadsheets/d/1NAN_azkn9kVQvKAkb9UVl0i66_SfEez3VQXRDKTVIA4/edit?usp=sharing
+- [テーブル定義書](https://docs.google.com/spreadsheets/d/1VvPhFJ8k59rQxTckvKqenU6MuJuM_X-R_J074qv8O_Y/edit?usp=sharing)
+- (apiエンドポイント)[https://docs.google.com/spreadsheets/d/1NAN_azkn9kVQvKAkb9UVl0i66_SfEez3VQXRDKTVIA4/edit?usp=sharing]
