@@ -66,7 +66,7 @@ def index():
 @app.route("/register",methods=['POST'])
 def register():
   email = request.json["email"]
-  password = request.json["email"]
+  password = request.json["password"]
   model = UserModel(db)
   if model.getUser(email):
         return jsonify({"error": "User already exists"}), 409
