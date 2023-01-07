@@ -23,6 +23,21 @@ SELECT * FROM user
         print(result)
     return result
 
+  def getEmail(self, user_id):
+    email = ""
+    select_stmt = sqlalchemy.text('''
+SELECT email FROM user where user_id = :user_id
+'''[1:-1]
+  )
+    with self.db.connect() as conn:
+        for row in conn.execute(
+                select_stmt,
+                user_id=user_id,
+        ).fetchall():
+          email = row[0]
+    print(email)
+    return email
+
   def getUser(self, email):
     result = {}
     select_stmt = sqlalchemy.text('''

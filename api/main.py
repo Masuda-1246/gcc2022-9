@@ -106,3 +106,17 @@ def showUserList():
 def logout_user():
     session.pop("user_id")
     return "200"
+
+@app.route("/auth",methods=["POST"])
+def get_current_user():
+    user_id = session.get("user_id")
+    if not user_id:
+        return jsonify({"error": "Unauthorized"}), 401
+    model = UserModel(db)
+    email = model.getEmail(user_id)
+    if not email:
+      return jsonify({"error": "Unauthorized"}), 401
+    return jsonify({
+      "user_id":user_id,
+      "email":email
+    })
