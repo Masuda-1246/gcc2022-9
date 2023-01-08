@@ -50,6 +50,22 @@ CREATE TABLE IF NOT EXISTS user
 )
 '''[1:-1]
     )
+
+    sqls.append('''
+CREATE TABLE IF NOT EXISTS event
+(
+    event_id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    auther VARCHAR(256),
+    title VARCHAR(256),
+    description VARCHAR(256),
+    url VARCHAR(256),
+    tags VARCHAR(256),
+    date VARCHAR(256),
+    created_at TIMESTAMP DEFAULT current_timestamp()
+)
+'''[1:-1]
+    )
+
     # 回答を管理するテーブルの作成
     with db.connect() as conn:
         for sql in sqls:
