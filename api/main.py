@@ -124,6 +124,24 @@ def logout_user():
     session.pop("user_id")
     return "200"
 
+@app.route("/updateemail", methods=["PUT"])
+def updateEmail():
+    model = UserModel(db)
+    model.updateEmail(request.json["old"],request.json["new"])
+    return "200"
+
+@app.route("/updatepassword", methods=["PUT"])
+def updatePassword():
+    model = UserModel(db)
+    model.updatePassword(request.json["email"],request.json["password"])
+    return "200"
+
+@app.route("/deleteuser", methods=["DELETE"])
+def deleteUser():
+    model = UserModel(db)
+    model.deleteUser(request.json["email"])
+    return "200"
+
 @app.route("/auth",methods=["POST"])
 def get_current_user():
     user_id = session.get("user_id")

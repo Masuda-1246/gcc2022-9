@@ -1,6 +1,6 @@
 import sqlalchemy
 from uuid import uuid4
-  
+
 class CommonModel:
   def __init__(self, db=None):
     self.db = db
@@ -78,6 +78,43 @@ INSERT INTO user (
             password=password,
         )
     return id
+
+  def updateEmail(self, old, new):
+    print(old, new)
+    select_stmt = sqlalchemy.text('''
+UPDATE user SET email=:new where email=:old
+'''[1:-1]
+  )
+    with self.db.connect() as conn:
+        conn.execute(
+                select_stmt,
+                old=old,
+                new=new,
+        )
+
+  def updatePassword(self, email, password):
+    select_stmt = sqlalchemy.text('''
+UPDATE user SET password=:password where email=:email
+'''[1:-1]
+  )
+    with self.db.connect() as conn:
+        conn.execute(
+                select_stmt,
+                email=email,
+                password=password,
+        )
+
+  def deleteUser(self, email, ):
+    select_stmt = sqlalchemy.text('''
+DELETE FROM user where email=:email
+'''[1:-1]
+  )
+    with self.db.connect() as conn:
+        conn.execute(
+                select_stmt,
+                email=email,
+        )
+
 class EventModel(CommonModel):
   def list(self):
     result = []
