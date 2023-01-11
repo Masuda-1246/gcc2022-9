@@ -5,6 +5,7 @@ from flask_cors import CORS
 from flask_bcrypt import Bcrypt
 from datetime import timedelta
 
+from models import EventModel
 from models import UserModel
 
 app = Flask(__name__)
@@ -136,3 +137,42 @@ def get_current_user():
       "user_id":user_id,
       "email":email
     })
+
+@app.route("/event/list", methods=['GET'])
+def showEventList():
+  model = EventModel(db)
+  list = model.list()
+  return list
+
+@app.route("/event/register", methods=['POST'])
+def createEvent():
+  model = EventModel(db)
+  model.createEvent(
+    request.json["auther"],
+    request.json["title"],
+    request.json["description"],
+    request.json["url"],
+    request.json["tags"],
+    request.json["date"],
+    )
+  return "200"
+
+@app.route("/event/update", methods=['PUT'])
+def updateEvent():
+  model = EventModel(db)
+  model.updateEvent(
+    request.json["event_id"],
+    request.json["auther"],
+    request.json["title"],
+    request.json["description"],
+    request.json["url"],
+    request.json["tags"],
+    request.json["date"],
+    )
+  return "200"
+
+@app.route("/event/delete", methods=['DELETE'])
+def deleteEvent():
+  model = EventModel(db)
+  model.deleteEvent(request.json["event_id"])
+  return "200"
