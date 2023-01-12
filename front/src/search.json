@@ -1,0 +1,23 @@
+{
+    "roomInfo1":{
+        "title":"プログラミングについて1",
+        "tag":"programming,study,school1",
+        "url":"http://wwwwwwwwwwwwwwwwwwww"
+    },
+    "roomInfo2":{
+        "title":"プログラミングについて2",
+        "tag":"programming,study,school2",
+        "url":"http://wwwwwwwwwwwwwwwwwwww"
+    },
+    "roomInfo3":{
+        "title":"プログラミングについて3",
+        "tag":"programming,study,school3",
+        "url":"http://wwwwwwwwwwwwwwwwwwww"
+    },
+    "roomInfo4":{
+        "title":"プログラミングについて4",
+        "tag":"programming,study,school4",
+        "url":"http://wwwwwwwwwwwwwwwwwwww"
+    }
+    
+}
